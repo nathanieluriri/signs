@@ -1,3 +1,11 @@
 flet
 torch
 fastapi
+tensorflow
+opencv-python 
+mediapipe 
+scikit-learn 
+matplotlib
+streamlit
+streamlit_webrtc
+av

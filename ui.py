@@ -129,13 +129,19 @@ def video_frame_callback(frame: av.VideoFrame) -> av.VideoFrame:
 
     return av.VideoFrame.from_ndarray(image, format="bgr24")
 
+
+
+
+
+
 # Run the WebRTC streamer
 webrtc_streamer(key="example", 
                 mode=WebRtcMode.SENDRECV,
                 media_stream_constraints={"video": True, "audio": False},
                 video_frame_callback=video_frame_callback,
+                    rtc_configuration={  # Add this config
+        "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+    },
                 async_processing=True)
-
-
 
 
